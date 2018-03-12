@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-#This one needs serious debugging!
+#To be merged into factor.py
 
 import sys
 import common
-import getfactors
+import factor
 
-factors = getfactors.getFactors(common.validateInteger(sys.argv[1]))
+factors = factor.getFactors(common.validateInteger(sys.argv[1]))
 
 if len(factors) % 2 != 0:
     halfLen = int((len(factors) - 1) / 2)
@@ -29,7 +29,7 @@ for i in range (1, halfLen):
 
 
 def getFactorPairs(num):
-    factors = getfactors.getFactors(common.validateInteger(sys.argv[1]))
+    factors = factor.getFactors(common.validateInteger(sys.argv[1]))
     pairs = []
 
     if len(factors) % 2 != 0:
