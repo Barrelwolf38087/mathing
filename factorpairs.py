@@ -12,7 +12,7 @@ if len(factors) % 2 != 0:
     halfLen = int((len(factors) - 1) / 2)
     squareroot = factors[halfLen]
 else:
-    halfLen = int(len(factors) / 2)
+    pass
 
 try:
     factors.insert(factors.index(squareroot), squareroot)
