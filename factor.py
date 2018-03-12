@@ -33,7 +33,7 @@ if __name__ == "__main__":
     try:
         input = common.validateInteger(sys.argv[1])
     except IndexError:
-        print("Error: Must have at least one argument!")
+        print("Usage: factor.py number")
         exit(1)
 
     doFactoring()
