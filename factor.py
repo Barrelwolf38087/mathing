@@ -19,6 +19,7 @@ def doFactoring():
 
 
 def getFactors(numberToFactor):
+    numberToFactor = common.validateInteger(numberToFactor)
     factorList = []
     numberToTry = 1
     while numberToTry <= numberToFactor:
