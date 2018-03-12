@@ -26,3 +26,32 @@ def validateFloat(input):
             else:
                 validatedString += char
     return float(validatedString)
+
+def validateIntegerToString(input):
+    return str(validateInteger(input))
+
+def validateFloatToString(input):
+    return str(validateFloat(input))
+
+def hasDigits(input):
+    rawString = str(input)
+    
+    if rawString == "":
+        return False
+    for char in rawString:
+        if not char.isdigit():
+            return False
+    return True
+
+def convertibleToInteger(input):
+    rawString = str(input)
+    if len(input) == 0:
+        return False
+
+    for char in rawString:
+        if char.isdigit():
+            return True
+    return False
+
+def convertibleToFloat(input):
+    pass
