@@ -1,20 +1,24 @@
 #!/usr/bin/python3
+#Experimenting with new import statements to save a bit of memory
 from sys import argv
 from common import validateInteger
 from common import convertibleToInteger
 from math import gcd
 
 numbers = []
-for i in argv:
-    if convertibleToInteger(i):
-        numbers.append(validateInteger(i))
 
+#Beware the unnecessarily long line
+numbers = list(map(lambda x: validateInteger(x) if convertibleToInteger(x) else None, argv))
 
+#I take no credit for math.gcd()
 def getGcf(*args):
-    return gcd()
+    return gcd(*args)
+
+if __name__ == "__main__":
+    print(str(getGcf(*numbers)))
 
 
-###OLD, CRAPPY CODE BELOW###
+###WARNING:Old, crummy code below###
 
 
 # import factor
