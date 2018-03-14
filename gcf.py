@@ -1,40 +1,45 @@
 #!/usr/bin/python3
 import sys
-import factor
 import common
 
-numbers = []
 
-for i in sys.argv:
-    if i != __name__ and common.convertibleToInteger(i):
-        numbers.append(common.validateInteger(i))
+###OLD, CRAPPY CODE BELOW###
 
 
-#il should be a list of lists
-def allContain(il, value):
+# import factor
+
+# numbers = []
+
+# for i in sys.argv:
+#     if i != __name__ and common.convertibleToInteger(i):
+#         numbers.append(common.validateInteger(i))
+
+
+# #il should be a list of lists
+# def allContain(il, value):
     
-    for thisList in il:
-        if not list.__contains__(thisList, value):
-            return False
+#     for thisList in il:
+#         if not list.__contains__(thisList, value):
+#             return False
 
-    return True
+#     return True
 
-def getGcf(numbers): #reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-    factorListList = []
-    possible = []
-    #commonFactors = []
-    #tryThis = 1
+# def getGcf(numbers): #reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+#     factorListList = []
+#     possible = []
+#     #commonFactors = []
+#     #tryThis = 1
 
-    for i in numbers:
-        factorListList.append(factor.getFactors(i))
+#     for i in numbers:
+#         factorListList.append(factor.getFactors(i))
 
 
-    # while tryThis <= max(numbers):
-    #     if allContain(factorListList, tryThis):
-    #         commonFactors.append(tryThis)
+#     # while tryThis <= max(numbers):
+#     #     if allContain(factorListList, tryThis):
+#     #         commonFactors.append(tryThis)
     
-    # return max(commonFactors)
+#     # return max(commonFactors)
 
 
-if __name__ == "__main__":
-    print(str(getGcf(numbers)))
+# if __name__ == "__main__":
+#     print(str(getGcf(numbers)))
