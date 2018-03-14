@@ -1,6 +1,17 @@
 #!/usr/bin/python3
-import sys
-import common
+from sys import argv
+from common import validateInteger
+from common import convertibleToInteger
+from math import gcd
+
+numbers = []
+for i in argv:
+    if convertibleToInteger(i):
+        numbers.append(validateInteger(i))
+
+
+def getGcf(*args):
+    return gcd()
 
 
 ###OLD, CRAPPY CODE BELOW###
