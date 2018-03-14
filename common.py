@@ -10,6 +10,14 @@ def validateInteger(input):
             validatedString += char
     return int(validatedString)
 
+def validateIntegers(input):
+    convertible = list(filter(lambda x: convertibleToInteger(x), input))
+    return list(map(validateInteger, convertible))
+
+def validateFloats(input):
+    convertible = list(filter(lambda x: convertibleToFloat(x), input))
+    return list(map(validateFloat, convertible))
+
 def validateFloat(input):
     validatedString = ""
     rawString = str(input)
