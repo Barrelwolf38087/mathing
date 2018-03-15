@@ -31,7 +31,11 @@ def validateFloat(input):
                 oneDecimal = True
             else:
                 validatedString += char
-    return float(validatedString)
+    try:
+        rv = float(validatedString)
+    except ValueError:
+        rv = None
+    return rv
 
 def validateIntegerToString(input):
     return str(validateInteger(input))
@@ -61,3 +65,8 @@ def convertibleToInteger(input):
 
 def convertibleToFloat(input):
     pass
+
+def checkFloatEven(input):
+    if validateFloat(input) == validateFloat(validateIntegerToString(input) + '.0'):
+        return True
+    return False
