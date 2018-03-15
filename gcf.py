@@ -1,18 +1,14 @@
 #!/usr/bin/python3
 #Experimenting with new import statements to save a bit of memory
 from sys import argv
-from common import validateInteger
-from common import convertibleToInteger
+import common
 from math import gcd
 
-numbers = []
 
-#Beware the unnecessarily long line
-numbers = list(map(lambda x: validateInteger(x) if convertibleToInteger(x) else None, argv))
+numbers = common.validateIntegers(argv)
 
-#I take no credit for math.gcd()
 def getGcf(*args):
-    return gcd(*args)
+    pass
 
 if __name__ == "__main__":
     print(str(getGcf(*numbers)))
