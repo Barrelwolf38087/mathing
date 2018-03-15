@@ -65,8 +65,4 @@ def convertibleToInteger(input):
 
 def convertibleToFloat(input):
     pass
-
-def checkFloatEven(input):
-    if validateFloat(input) == validateFloat(validateIntegerToString(input) + '.0'):
-        return True
-    return False
+    
