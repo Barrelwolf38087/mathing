@@ -1,14 +1,20 @@
 #!/usr/bin/python3
 #Experimenting with new import statements to save a bit of memory
 from sys import argv
-import common
 from math import gcd
+from factor import getFactors
+from common import validateIntegers
 
 
-numbers = common.validateIntegers(argv)
+
+numbers = validateIntegers(argv)
 
 def getGcf(*args):
-    pass
+    fll = list(map(getFactors, args))
+    a = []
+    for i in fll:
+        pass
+
 
 if __name__ == "__main__":
     print(str(getGcf(*numbers)))
