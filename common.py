@@ -11,12 +11,10 @@ def validateInteger(input):
     return int(validatedString)
 
 def validateIntegers(input):
-    convertible = list(filter(lambda x: convertibleToInteger(x), input))
-    return list(map(validateInteger, convertible))
+    return list(map(validateInteger, list(filter(lambda x: convertibleToInteger(x), input))))
 
 def validateFloats(input):
-    convertible = list(filter(lambda x: convertibleToFloat(x), input))
-    return list(map(validateFloat, convertible))
+    return list(map(validateFloat, list(filter(lambda x: convertibleToFloat(x), input))))
 
 def validateFloat(input):
     validatedString = ""
