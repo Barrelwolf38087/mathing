@@ -43,16 +43,6 @@ def validateIntegerToString(input):
 def validateFloatToString(input):
     return str(validateFloat(input))
 
-def hasDigits(input):
-    rawString = str(input)
-    
-    if rawString == "":
-        return False
-    for char in rawString:
-        if not char.isdigit():
-            return False
-    return True
-
 def convertibleToInteger(input):
     rawString = str(input)
     if len(input) == 0:
@@ -64,5 +54,16 @@ def convertibleToInteger(input):
     return False
 
 def convertibleToFloat(input):
-    pass
-    
+    rawString = str(input)
+    if rawString.startswith('-'):
+        start = 1
+    else:
+        start = 0
+    if len(rawString) == 0:
+        return False
+    if rawString == '-':
+        return False
+
+    for char in rawString[:start]:
+        if char.isdigit() or char == '.':
+            return True
