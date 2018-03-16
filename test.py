@@ -43,4 +43,4 @@ if __name__ == "__main__":
     mismatch = list(filter(lambda x: False if x in modList else True, input))
 
     if len(mismatch) > 0: 
-        print("Inputs did not match any modules:", ', '.join(list((str(i) for i in mismatch))))
+        print("Inputs did not match any modules:", ', '.join(mismatch))
