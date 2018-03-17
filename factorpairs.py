@@ -7,23 +7,28 @@ from common import validateInteger
 from factor import getFactors
 
 
-def getFactorPairs(input):
-    factors = getFactors(validateInteger(input))
+# def getFactorPairs(input):
+#     factors = getFactors(validateInteger(input))
 
-    if len(factors) % 2 != 0:
-        halfLen = int((len(factors) - 1) / 2)
-        squareroot = factors[halfLen]
-        factors.insert(factors.index(squareroot), squareroot)
-    else:
-        halfLen = int(len(factors)) - 2
+#     if len(factors) % 2 != 0:
+#         halfLen = int((len(factors) - 1) / 2)
+#         squareroot = factors[halfLen]
+#         factors.insert(factors.index(squareroot), squareroot)
+#     else:
+#         halfLen = int(len(factors)) - 2
 
-    setA = [x for x in factors[:halfLen + 1]]
-    setB = [x for x in factors[halfLen + 1:]]
-    setB.reverse()
+#     setA = [x for x in factors[:halfLen + 1]]
+#     setB = [x for x in factors[halfLen + 1:]]
+#     setB.reverse()
     
-    return list(map(lambda x: (setA[x], setB[x]), range(0, len(setA))))
+#     rv = []
+
+#     for i in setA:
+#         rv.append((i, setB[setA.index(i)]))
+#     return rv
+#     #return list(map(lambda x: (setA[x], setB[x]), range(0, len(setA))))
 
 
-if __name__ == "__main__":
-    for x in getFactorPairs(argv[1]):
-        print(x)
+# if __name__ == "__main__":
+#     for x in getFactorPairs(argv[1]):
+#         print(x)
