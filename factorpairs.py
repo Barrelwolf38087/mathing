@@ -2,96 +2,28 @@
 
 #To be merged into factor.py
 
-import sys
-import common
-import factor
-
-factors = factor.getFactors(common.validateInteger(sys.argv[1]))
-
-if len(factors) % 2 != 0:
-    halfLen = int((len(factors) - 1) / 2)
-    squareroot = factors[halfLen]
-else:
-    pass
-
-try:
-    factors.insert(factors.index(squareroot), squareroot)
-except NameError:
-    pass
-
-setA = []
-setB = []
-
-for i in range(0, halfLen - 1):
-    setA.append(factors[i])
-for i in range (1, halfLen):
-    setB.append(factors[-i])
+from sys import argv
+from common import validateInteger
+from factor import getFactors
 
 
-def getFactorPairs(num):
-    factors = factor.getFactors(common.validateInteger(sys.argv[1]))
-    pairs = []
+def getFactorPairs(input):
+    factors = getFactors(validateInteger(input))
 
     if len(factors) % 2 != 0:
         halfLen = int((len(factors) - 1) / 2)
         squareroot = factors[halfLen]
-    else:
-        halfLen = int(len(factors) / 2)
-
-    try:
         factors.insert(factors.index(squareroot), squareroot)
-    except NameError:
-        pass
+    else:
+        halfLen = int(len(factors)) - 2
 
-    setA = []
-    setB = []
-
-    for i in range(0, halfLen - 1):
-        setA.append(factors[i])
-    for i in range (1, halfLen):
-        setB.append(factors[-i])
-
-    for i in range(0, len(setA) - 1):
-        pairs[i] = [setA[i], setB[i]]
-
-    return pairs
+    setA = [x for x in factors[:halfLen + 1]]
+    setB = [x for x in factors[halfLen + 1:]]
+    setB.reverse()
+    
+    return list(map(lambda x: (setA[x], setB[x]), range(0, len(setA))))
 
 
 if __name__ == "__main__":
-    for i in range(len(setA)):
-        print(str(setA[i]) + " x " + str(setB[i]))
-
-# firstFactors = []
-# secondFactors = []
-
-# input = common.validateInteger(sys.argv[1])
-# factors = getfactors.getFactors(input)
-
-# def getFactorPairs(num):
-#     input = common.validateInteger(num)
-#     factors = getfactors.getFactors(input)
-#     firstFactors = []
-#     secondFactors = []
-#     for thisIndex in range(0, int(len(factors) / 2 - 1)):
-#         firstFactors.append(factors[thisIndex])
-#     for thisIndex in range(int(len(factors) / 2), len(factors) - 1):
-#         secondFactors.append(factors[thisIndex])
-#     secondFactors.reverse()
-    
-#     return dict(zip(firstFactors, secondFactors))
-
-
-# for thisIndex in range(0, int(len(factors) / 2 - 1)):
-#     firstFactors.append(factors[thisIndex])
-
-# for thisIndex in range(int(len(factors) / 2), len(factors) - 1):
-#     secondFactors.append(factors[thisIndex])
-
-# secondFactors.reverse()
-
-# #for thisIndex in range(0, len(firstFactors) - 1):
-# #    factorPairs[firstFactors[thisIndex]] += secondFactors[thisIndex]
-
-# if __name__ == "__main__":
-#     for thisIndex in range(0, len(firstFactors) - 1):
-#         print(str(firstFactors[thisIndex]) + " x " + str(secondFactors[thisIndex]))
+    for x in getFactorPairs(argv[1]):
+        print(x)
