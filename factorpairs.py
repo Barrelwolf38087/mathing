@@ -5,30 +5,25 @@
 from sys import argv
 from common import validateInteger
 from factor import getFactors
+from root import getRoot
 
 
-# def getFactorPairs(input):
-#     factors = getFactors(validateInteger(input))
+def getFactorPairs(input):
+    num = validateInteger(input)
+    factors = getFactors(num)
 
-#     if len(factors) % 2 != 0:
-#         halfLen = int((len(factors) - 1) / 2)
-#         squareroot = factors[halfLen]
-#         factors.insert(factors.index(squareroot), squareroot)
-#     else:
-#         halfLen = int(len(factors)) - 2
+    if len(factors) % 2 != 0:
+        factors.insert(factors.index(getRoot(2, num)), int(getRoot(2, num)))
 
-#     setA = [x for x in factors[:halfLen + 1]]
-#     setB = [x for x in factors[halfLen + 1:]]
-#     setB.reverse()
-    
-#     rv = []
+    h = int(len(factors) / 2)
 
-#     for i in setA:
-#         rv.append((i, setB[setA.index(i)]))
-#     return rv
-#     #return list(map(lambda x: (setA[x], setB[x]), range(0, len(setA))))
+    a = factors[:h]
+    b = factors[h:]
+    b.reverse()
+
+    return list(map(lambda x: (a[x], b[x]), range(0, len(a))))
 
 
-# if __name__ == "__main__":
-#     for x in getFactorPairs(argv[1]):
-#         print(x)
+if __name__ == "__main__":
+    for i in getFactorPairs(argv[1]):
+        print(i)
