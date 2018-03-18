@@ -2,17 +2,35 @@
 from sys import argv
 from common import validateInteger
 
-def checkPerfectPower(power, value):
+def checkPerfectPower(power, value, returnRoot=False):
     inputValue = validateInteger(value)
     inputPower = validateInteger(power)
 
+    if returnRoot:
+        from root import getRoot
+
+    result = "False"
+
     for i in range(abs(inputValue)):
         if i ** inputPower == abs(inputValue):
-            return True
-    return False
+            result = "True\n" + str(getRoot(inputPower, inputValue, True)) if returnRoot else "True"
+
+    return result
 
 if __name__ == "__main__":
     try:
-        print(str(checkPerfectPower(argv[1], argv[2])))
+        power = validateInteger(argv[1])
+        base = validateInteger(argv[2])
     except IndexError:
-        print("Usage: perfect.py exponent number")
+        print("Usage: perfect.py exponent number [root]")
+        exit()
+    
+    root = False
+
+    try:
+        if argv[3].lower() == "root":
+            root = True
+    except IndexError:
+        pass
+
+    print(checkPerfectPower(power, base, root))
