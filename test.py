@@ -12,8 +12,8 @@ def checkCommon():
     errors = 0
     try:
         import common
-    except ModuleNotFoundError:
-        print("Module not found!")
+    except ImportError:
+        print("Failed to import common! Does it exist? Is it in the same folder as this script? Am I going insane?")
         return
     
     if not hasattr(common, 'validateInteger'):
@@ -128,7 +128,7 @@ def checkCommon():
             print("convertibleToFloat fails with string 'stuff'")
             errors += 1
 
-    print("Finished with", str(errors), "error(s).", (" I swear it's not my fault." if errors > 0 else ''))
+    print("Finished with", str(errors), "error(s).", ("I swear it's not my fault." if errors > 0 else ''))
 
 def checkFactor():
     import factor
@@ -152,7 +152,6 @@ def checkRoot():
 ### Add them to the bottom of the list. The key should be the module's name in lowercase.
 
 modList = {
-    'all': checkAll,
     'common': checkCommon,
     'factor': checkFactor,
     'factorpairs': checkFactorPairs,
@@ -172,11 +171,15 @@ if __name__ == "__main__":
     except IndexError:
         print("Usage: test.py module|all [module 2...]")
     
-    toCheck = list(filter(lambda x: True if x in modList else False, input))
-    mismatch = list(filter(lambda x: False if x in modList else True, input))
+    toCheck = list(filter(lambda x: True if x in modList or x == "all" else False, input))
+    mismatch = list(filter(lambda x: False if x in modList or x == "all" else True, input))
 
     if len(mismatch) > 0: 
         print("Inputs did not match any modules:", ', '.join(mismatch))
     
-    for i in toCheck:
-        modList[toCheck]()
+    if "all" in toCheck:
+        for i in modList:
+            modList[i]()
+    else:
+        for i in toCheck:
+            modList[i]()
