@@ -45,7 +45,7 @@ def validateFloatToString(input):
 
 def convertibleToInteger(input):
     rawString = str(input)
-    if len(input) == 0:
+    if len(rawString) == 0:
         return False
 
     for char in rawString:
