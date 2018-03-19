@@ -44,16 +44,16 @@ def checkCommon():
             print("validateIntegerToString fails with bad stringed int 'abc3.def2ghi'")
             errors += 1
 
-    # if not hasattr(common, 'validateIntegers'):
-    #     print("Missing attribute validateIntegers")
-    #     errors += 1
-    # else:
-    #     if not checkFunctionality([32, 64], common.validateIntegers, ['stuff', 32, 64])
-    #         print("validateIntegers fails with ['stuff', 32, 64]")
-    #         errors += 1
-    #     if not checkFunctionality([32, 64], common.validateIntegers, [32, 64]):
-    #         print("validateIntegers fails with [32, 64]")
-    #         errors += 1
+    if not hasattr(common, 'validateIntegers'):
+        print("Missing attribute validateIntegers")
+        errors += 1
+    else:
+        if not checkFunctionality([32, 64], common.validateIntegers, ['stuff', 32, 64]):
+            print("validateIntegers fails with ['stuff', 32, 64]")
+            errors += 1
+        if not checkFunctionality([32, 64], common.validateIntegers, [32, 64]):
+            print("validateIntegers fails with [32, 64]")
+            errors += 1
 
     if not hasattr(common, 'validateFloat'):
         print("Missing attribute validateFloat")
@@ -83,16 +83,16 @@ def checkCommon():
             print("validateFloatToString fails with bad stringed float 'abc3def2ghi.5jkl'")
             errors += 1
 
-    # if not hasattr(common, 'validateFloats'):
-    #     print("Missing attribute validateFloats")
-    #     errors += 1
-    # else:
-    #     if not checkFunctionality([32, 64], common.validateFloats, ['stuff', 32.5, 64.5])
-    #         print("validateFloats fails with ['stuff', 32.5, 64.5]")
-    #         errors += 1
-    #     if not checkFunctionality([32, 64], common.validateFloats, [32.5, 64.5]):
-    #         print("validateFloats fails with [32.5, 64.5]")
-    #         errors += 1
+    if not hasattr(common, 'validateFloats'):
+        print("Missing attribute validateFloats")
+        errors += 1
+    else:
+        if not checkFunctionality([32, 64], common.validateFloats, ['stuff', 32.5, 64.5]):
+            print("validateFloats fails with ['stuff', 32.5, 64.5]")
+            errors += 1
+        if not checkFunctionality([32, 64], common.validateFloats, [32.5, 64.5]):
+            print("validateFloats fails with [32.5, 64.5]")
+            errors += 1
 
     if not hasattr(common, 'convertibleToInteger'):
         print("Missing attribute convertibleToInteger")
