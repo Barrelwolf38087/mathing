@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+
+#TODO: Migrate to unittest
+
 from sys import argv
+from os import environ
 
 def checkFunctionality(correct, function, *args):
     if function(*args) != correct: 
@@ -166,6 +170,10 @@ def checkAll():
 
 
 if __name__ == "__main__":
+    
+    if "MATHING_PERMITDEPRECATION" not in dict(environ).keys() or dict(environ)["MATHING_PERMITDEPRECATION"] != "1":
+        raise DeprecationWarning("Please use unittests.py instead, or set the MATHING_PERMITDEPRECATION environment variable to 1.")
+
     try:
         input = argv[1:]
     except IndexError:
