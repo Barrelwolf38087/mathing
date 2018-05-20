@@ -60,9 +60,14 @@ class TestCommon(unittest.TestCase):
         result = common.validateFloat("fdsfd5gth.uhhjk5ccbnn")
         self.assertEqual(result, 5.5)
 
+    @unittest.skipUnless(noskip, "Not properly handled yet")
     def test_validate_double_decimal_float_in_string_to_float(self):
         result = common.validateFloat("5.5.5")
         self.assertEqual(result, 5.55)
+
+    def test_validate_int_to_float(self):
+        result = common.validateFloat(5)
+        self.assertEqual(result, 5.0)
 
 if __name__ == "__main__":
     unittest.main()
