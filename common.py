@@ -1,5 +1,9 @@
 def validateInteger(input):
     #TODO: Validating floats should chop off the decimal places, not just remove the point.
+    
+    if input is "" or input is None:
+        return 0
+    
     validatedString = ""
     rawString = str(input)
 
