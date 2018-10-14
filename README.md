@@ -29,7 +29,7 @@ $ ./factorpairs.py 24
 
 ### gcf.py
 
-Finds the GCF of 2 numbers.
+Finds the GCF of all given integers.
 
 ```bash
 $ ./gcf.py 12 32
@@ -38,8 +38,15 @@ $ ./gcf.py 12 32
 
 ### perfect.py
 
-WIP
+Prints 'True' if the N-th root of X is a natural number,
+where N is the first argument and X is the second.
 
+```bash
+$ ./gcf.py 2 16
+True
+$ ./gcf.py 2 7
+False
+```
 
 ## Currently broken or incomplete:
 unittests.py
